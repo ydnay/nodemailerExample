@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const nodemailer = require('nodemailer');
-const templates = require('../templates/templates');
+const templates = require('../templates/template');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -26,7 +26,7 @@ router.post('/send-email', (req, res, next) => {
     from: 'yandygonzalez@gmail.com',
     to: email, 
     subject: subject, 
-    html: templates.templateExample2(message),
+    html: templates.templateExample(message),
   })
   .then(info => res.render('message', {email, subject, message, info}))
   .catch(error => console.log(error));
